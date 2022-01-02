@@ -5,41 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire</title>
+    <link rel='stylesheet' href="style.css">
+    <script src="myScript.js"></script>
 </head>
 
 <body>
     <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="formulaire.html">Formulaire</a></li>
-            <li><a href="tableau.html">Tableau</a></li>
-            <li><a href="about.html">A propos</a></li>
-        </ul>
+        <h1>CSS Quiz</h1>
+        <a href="index.html">Accueil</a>
+        <a href="formulaire.html">Quiz</a>
+        <a href="tableau.html">Réponses</a>
     </nav>
+
     <section>
-        <div class=formulaire>
-            <label for="question1">Question 1</label>
-            <input type="text" id="question1">
-            <label for="question2">Question 2</label>
-            <input type="checkbox" id="question2">
-            <label for="nom">Nom</label>
-        </div>
-        <div class=coordonées>
-            <label for="prenom">Prénom</label>
-            <input type="text" id="prenom">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom">
-            <label for="mail">Mail</label>
-            <input type="email" id="mail">
+        <form name="quiz" action="#" class="box" id="new-quiz" onsubmit="return false">
+            <div class=formulaire>
+                <h2>Quiz</h2>
+                <div class="question">
+                    <label for="question1">Quel élément permet de choisir la couleur du texte ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question1">color</div>
+                    <div class="reponse"><input type="checkbox" class="question1">font-color</div>
+                    <div class="reponse"><input type="checkbox" class="question1">text-color</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel élément permet de choisir la couleur de l'arrière plan ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">color</div>
+                    <div class="reponse"><input type="checkbox" class="question2">background-color</div>
+                    <div class="reponse"><input type="checkbox" class="question2">back-color</div>
+                </div>
+                <div class=question>
+                    <label for="question3">Quel élément permet de modifier la police d'écriture ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question3">text-style</div>
+                    <div class="reponse"><input type="checkbox" class="question3">text-family</div>
+                    <div class="reponse"><input type="checkbox" class="question3">font-family</div>
+                </div>
+                <div class=question>
+                    <label for="question4">Comment écrit-on un commentaire ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">//...</div>
+                    <div class="reponse"><input type="checkbox" class="question2">**...**</div>
+                    <div class="reponse"><input type="checkbox" class="question2">/*...*/</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel terme est utilisé pour définir les marges extérieurs d'une boîte
+                        ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">margin</div>
+                    <div class="reponse"><input type="checkbox" class="question2">border</div>
+                    <div class="reponse"><input type="checkbox" class="question2">padding</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel terme est utilisé pour définir les marges intérieurs d'une boîte
+                        ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">margin</div>
+                    <div class="reponse"><input type="checkbox" class="question2">border</div>
+                    <div class="reponse"><input type="checkbox" class="question2">padding</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel terme est utilisé pour définir la bordure d'une boîte ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">margin</div>
+                    <div class="reponse"><input type="checkbox" class="question2">border</div>
+                    <div class="reponse"><input type="checkbox" class="question2">padding</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel élément est utilisé pour controler la façon dont un objet est affiché
+                        ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">layout</div>
+                    <div class="reponse"><input type="checkbox" class="question2">content</div>
+                    <div class="reponse"><input type="checkbox" class="question2">display</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel élément permet de régler l'épaisseur d'un objet ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">width</div>
+                    <div class="reponse"><input type="checkbox" class="question2">border</div>
+                    <div class="reponse"><input type="checkbox" class="question2">scale</div>
+                </div>
+                <div class=question>
+                    <label for="question2">Quel terme est utilisé pour désigner le fait que la souris passe sur un objet
+                        ?</label><br>
+                    <div class="reponse"><input type="checkbox" class="question2">over</div>
+                    <div class="reponse"><input type="checkbox" class="question2">hover</div>
+                    <div class="reponse"><input type="checkbox" class="question2">click</div>
+                </div>
+            </div>
+
+            <div class=coordonées>
+                <h2>Coordonées</h2>
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom">
+                <label for="mail">Mail</label>
+                <input type="email" id="mail">
+            </div>
+        </form>
+        <div id="boutonForm">
+            <a href="formulaire.html">Envoyer les réponses</a>
         </div>
     </section>
+
     <footer>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="formulaire.html">Formulaire</a></li>
-            <li><a href="tableau.html">Tableau</a></li>
-            <li><a href="about.html">A propos</a></li>
-        </ul>
+        <a href="about.html">A propos</a>
     </footer>
 </body>
 

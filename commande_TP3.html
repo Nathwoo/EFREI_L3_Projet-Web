@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="fr"><!-- L'en-tête -->
+<head>
+    
+    <title>Commande</title>
+    <meta charset="utf-8">
+	<link href="style_formulaire.css" rel="stylesheet"> 
+    <!--
+    <script src="C:/Users/charradmal/OneDrive - Efrei/Cours 2021-2022/semestre 1/Programmation Web/TP3/Corrigé TP3/scriptFormulaire.js"></script>  
+    -->
+    <meta name="viewport" content="width=device-width">
+	
+
+</head>
+   
+   <!-- Le corps-->
+   
+<body>
+    <header>
+      <h2>Passez votre commande ici </h2>   
+      <button type="button" class="btn"  onclick="afficherDate()">Afficher la date ici</button>     
+      <span id="dateheure"></span> 
+      
+     <!-- exo2 Q1-->
+      <form name="newCommand" action="#" class="box" id="new-command" onsubmit="return false">  
+   
+        <h3>Coordonnées</h3>
+        <div class="container">          
+           <input type="text" name="nom" placeholder="Nom" required>     
+           <input type="text" name="prenom" placeholder="Prénom" required>       
+           <input type="text" name="adresse" placeholder="Adresse de livraison" required>                    
+           <input type="email" name="email" placeholder="email" required>  
+    </div>
+
+    <strong>Mode de livraison : </strong>
+    <div class="container">      
+        <select name="livraison" id="livraison" size=1>
+            <option value="Sur place">Retrait sur place
+            <option value="Livraison">Livraison à domicile
+        </select>
+    </div>
+       
+    <strong>Mode de paiement</strong>
+    <div class="container">  
+        <input type="radio" name="sur place">Paiement sur place
+        <input type="radio" name="en ligne">Paiement en ligne
+    </div>
+    
+    <strong>Je souhaite recevoir une facture</strong>
+    <input type="checkbox" name=”facture”><p>
+
+    <h3>Menu à commander</h3>
+    <p>       
+    <div class="container">  
+    <strong>Entrée : </strong>
+    <select name="entree" id="entreeId" >       
+        <option value="soupe de légumes">Soupe de légumes
+        <option value="salade aux fruits de mer">Salade aux fruits de mer
+    </select>
+    
+    <strong>Plat : </strong>
+    <select name="plat" >
+        <option value="Couscous au poisson">Couscous au poisson
+        <option value="Côte de veau aux petits légumes">Côte de veau aux petits légumes
+    </select>
+
+    <p>
+    <strong>Dessert : </strong>
+    <select name="dessert" >
+        <option value="Tiramisu">Tiramusi
+        <option value="Mousse au chocolat">Mousse au chocolat
+    </select>
+    </div>
+  
+    <p> 
+     <button type="submit" class="btn" onclick="ajouter()">Ajouter</button>
+     <button type="button" class="btn"  onclick="supprimer()">Supprimer</button>
+     <button type="reset"  class="btn" onclick="annuler()">Annuler</button>
+    <!-- <button type="button" class="btn"  onclick="afficherDate()">Date et Heure</button> -->
+     
+     
+
+
+</form>
+</header>
+
+
+<main>
+    <div class="box">
+         
+        <table class="datatable">
+        <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Adresse de livraison</th>
+              <th>Mode de livraison</th>
+              <th>Entrée</th>
+              <th>Plat</th>
+              <th>Dessert</th>
+            </tr>
+        </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+</main>
+<script>
+        // Ex2)1)
+    var newCommandForm = document.forms.newCommand; 
+
+
+function ajouter(){
+    //alert(newCommandForm.elements.prenom.value)
+    // Ex2)2)
+    console.log(newCommandForm.elements.nom.value)
+    console.log(newCommandForm.elements.adresse.value)
+
+    // Ex2)3)
+    const newItem = document.createElement('tr')
+    const nomTd = document.createElement('td')
+    const adresseTd = document.createElement('td')
+    const modeLivraisonTd = document.createElement('td')
+    const entreeTd = document.createElement('td')
+    const platTd = document.createElement('td')
+    const desserTd = document.createElement('td')
+    nomTd.textContent = document.newCommand.nom.value
+    adresseTd.textContent = document.newCommand.adresse.value
+    modeLivraisonTd.textContent = document.newCommand.livraison.value
+    entreeTd.textContent = document.newCommand.entree.value
+    platTd.textContent = document.newCommand.plat.value
+    desserTd.textContent = document.newCommand.dessert.value
+    
+    //const selectEntree = document.getElementById("entreeId");
+    //const valeurselectionnee = selectEntree.options[selectEntree.selectedIndex].value;
+    //const textselectionne = selectEntree.options[selectEntree.selectedIndex].text;
+   
+    console.log(entreeTd.textContent)
+    console.log(platTd.textContent)
+    console.log(desserTd.textContent)
+
+    /*Ex2)3)vii)   */
+
+    if (!document.newCommand.nom.checkValidity() ||
+          !document.newCommand.prenom.checkValidity() ||
+          !document.newCommand.adresse.checkValidity() ||
+          !document.newCommand.email.checkValidity()
+         ) {
+               return
+        }
+    
+    // Ex2)3)iv)
+    //const table = document.querySelector('table')
+    newItem.append(nomTd, adresseTd, modeLivraisonTd, entreeTd, platTd, desserTd)
+
+     /* le premier élément dans le document qui contient la classe "datatable" est retourné*/
+    const table = document.querySelector('.datatable tbody')
+    /*  Ex2)3)vi) */
+    table.appendChild(newItem)
+
+}
+
+    // supprimer toutes les lignes du tableau
+    //ex2)3)viii)
+function supprimer() {
+        const tbody = document.querySelector('.datatable tbody' )
+        while (tbody.firstChild) {
+          tbody.removeChild(tbody.firstChild)
+        }
+    
+}
+
+
+// je l'ai supprimé du TP
+  //exo3
+function pause(ms) 
+{
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function afficherDate() 
+{
+  while(true) 
+  {
+    await pause(1);
+    var cejour = new Date();
+    var options = {weekday: "long", year: "numeric", month: "long", day: "2-digit"};
+    var date = cejour.toLocaleDateString("fr-FR", options);
+    var heure = ("0" + cejour.getHours()).slice(-2) + ":" + ("0" + cejour.getMinutes()).slice(-2) + ":" + ("0" + cejour.getSeconds()).slice(-2);
+    var dateheure = date + " " + heure;
+    var dateheure = dateheure.replace(/(^\w{1})|(\s+\w{1})/g, lettre => lettre.toUpperCase());
+    document.getElementById('dateheure').innerHTML = dateheure;
+  }
+}
+//afficherDate();
+
+</script>
+</body>
