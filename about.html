@@ -21,14 +21,21 @@
             Ce site a été réalisé par Nathan Provost et Daniel Ivanov.<br>
             L'idée d'un questionnaire sur le langage CSS est à l'initiative de Daniel dans le but de mettre à profit nos
             connaissances sur le sujet.<br>
+            N'hésitez pas à nous contacter pour si vous avez une question ou une quelconque améliorations à
+            proposer.<br>
 
         </p>
-        <div class=contact>
+        <div id="contact">
             <h2>Formulaire de contact</h2>
-            <input type="text" name="nom" placeholder="Nom" required>
-            <input type="text" name="prenom" placeholder="Prénom" required>
-            <input type="email" name="email" placeholder="email" required>
-            <input type="text" name="message" placeholder="Votre message" required>
+            <label for="prenom">Prénom : <input type="text" id="prenom" required="true"></label>
+
+            <label for="nom">Nom : <input type="text" id="nom" required="true"></label>
+
+            <label for="mail">Mail : <input type="email" id="mail" required="true"></label>
+
+            <label for="message">Votre message : </label>
+            <textarea id="message" rows="5" cols="50"></textarea>
+            <input type="submit" class="bouton" value="Envoyer">
         </div>
     </section>
     <footer>
